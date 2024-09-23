@@ -8,6 +8,9 @@ This is a simple file transfer application that allows you to transfer files bet
 - Easy to use
 - Lightweight
 
+## Prerequisite
+Golang
+
 ## Installation
 Clone the repository
 
