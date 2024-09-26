@@ -64,6 +64,7 @@ func PeerDiscovery() []formatting.ServerID {
 	var serverIds []formatting.ServerID
 	go func() {
 		buffer := make([]byte, lockedConfig.PeerDiscoveryPacketSizeLimitBytes)
+		fmt.Printf("Listening for peer responses on %s\n", lockedConfig.PDClientListenPort)
 		for {
 			if timedOut {
 				return

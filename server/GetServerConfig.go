@@ -13,7 +13,7 @@ type ServerConfig struct {
 
 func GetServerConfig() ServerConfig {
 	var conf ServerConfig
-	configFilePath := myutils.GetRootDir() + "/server/config.toml"
+	configFilePath := myutils.MyPathJoin(myutils.GetRootDir(), "server", "config.toml")
 	_, err := toml.DecodeFile(configFilePath, &conf)
 	if err != nil {
 		panic(fmt.Errorf("error decoding config file: %w", err))

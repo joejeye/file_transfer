@@ -9,7 +9,7 @@ import (
 )
 
 func RandName() string {
-	pathToNames := GetRootDir() + "/assets/list_of_names.txt"
+	pathToNames := MyPathJoin(GetRootDir(), "assets", "list_of_names.txt")
 	file, err := os.Open(pathToNames)
 	if err != nil {
 		panic(fmt.Errorf("error opening file: %w", err))
