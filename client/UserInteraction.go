@@ -41,7 +41,7 @@ func AskForPeerSelection(receiverIDs []formatting.ServerID) (receiverName string
 
 // AskForFilePath asks the user to enter the path to the file to be sent
 func AskForFilePath() string {
-	fmt.Println("Please enter the path to the file you want to send:")
+	fmt.Println("Please enter the path (must not contain any spaces) to the file you want to send:")
 	var filePath string
 	nArgs, err := fmt.Scan(&filePath)
 	if err != nil {

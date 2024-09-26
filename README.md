@@ -21,7 +21,10 @@ Create a `config.toml` file in the `server` directory with the following:
 download_directory = "<directory_to_download_files_to>"
 listen_port = "<port_to_listen_on>"
 ```
-where `<directory_to_download_files_to>` is the directory you want to download the files to, and `<port_to_listen_on>` is the port you want the server to listen on.
+where `<directory_to_download_files_to>` is the directory you want to 
+download the files to, and `<port_to_listen_on>` is the port you want the
+server to listen on. If the file path contains backslashes, make sure to 
+escape them or use raw string literals.
 
 ## Running the server
 Run the following command at the server-side:
