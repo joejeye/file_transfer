@@ -13,7 +13,7 @@ import (
 func TransferFile(receiverSocket string, filePath string) {
 	// Open the file
 	if strings.Contains(filePath, " ") {
-		log.Fatalf("The file path must not contain any spaces.")
+		log.Fatalln("Invalid input: file path must not contain any spaces")
 	}
 	file, err := os.Open(filePath)
 	if err != nil {

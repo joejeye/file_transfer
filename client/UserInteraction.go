@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"file_transfer_naive/formatting"
 	"fmt"
 	"log"
+	"os"
 )
 
 // AskForPeerSelection asks the user to select a peer from the list of peers
@@ -43,12 +45,11 @@ func AskForPeerSelection(receiverIDs []formatting.ServerID) (receiverName string
 func AskForFilePath() string {
 	fmt.Println("Please enter the path (must not contain any spaces) to the file you want to send:")
 	var filePath string
-	nArgs, err := fmt.Scan(&filePath)
+	reader := bufio.NewReader(os.Stdin)
+	inputStr, err := reader.ReadString('\n')
 	if err != nil {
-		log.Fatalf("Error scanning input: %s\n", err)
+		log.Fatalf("Error reading input: %s\n", err)
 	}
-	if nArgs != 1 {
-		log.Fatalf("Expected 1 argument, got %d\n", nArgs)
-	}
+	filePath = inputStr[:len(inputStr)-1] // Remove the newline character
 	return filePath
 }
