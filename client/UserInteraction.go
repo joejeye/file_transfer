@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"file_transfer_naive/formatting"
 	"file_transfer_naive/myutils"
 	"fmt"
 	"log"
-	"os"
 )
 
 // AskForPeerSelection asks the user to select a peer from the list of peers
@@ -57,24 +55,21 @@ func AskForPeerSelection(receiverIDs []formatting.ServerID) (receiverName string
 func AskForFilePath() string {
 	fmt.Printf("Please enter the path (must not contain any spaces) to the file you want to send:\n> ")
 	var filePath string
-	reader := bufio.NewReader(os.Stdin)
-	inputStr, err := reader.ReadString('\n')
+	_, err := fmt.Scan(&filePath)
 	if err != nil {
-		log.Fatalf("Error reading input: %s\n", err)
+		log.Fatalf("Error scanning input: %s\n", err)
 	}
-	filePath = inputStr[:len(inputStr)-1] // Remove the newline character
 	return filePath
 }
 
 func AskForSocket() string {
 	fmt.Printf("Please enter the socket (<ip>:<port>) you want to send the file to:\n> ")
 	var socket string
-	reader := bufio.NewReader(os.Stdin)
-	inputStr, err := reader.ReadString('\n')
+	_, err := fmt.Scan(&socket)
 	if err != nil {
-		log.Fatalf("Error reading input: %s\n", err)
+		log.Fatalf("Error scanning input: %s\n", err)
 	}
-	socket = inputStr[:len(inputStr)-1] // Remove the newline character
+
 	if !myutils.ValidateSocket(socket) {
 		log.Fatalf("Invalid socket: %s\n", socket)
 	}
