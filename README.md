@@ -35,11 +35,12 @@ go run file_transfer_naive/server
 ## Sending a file using the client
 Run the following command at the client-side:
 ```
-go run file_transfer_naive/client
+go run file_transfer_naive/client <path_to_file>
 ```
-and follow the instructions. The client will first search the LAN for available receivers, 
-then prompt you to select a server to send the file to. Lastly, it will ask you to enter 
-the path to the file you want to send.
+and follow the instructions. `<path_to_file>` is the path to the file to be sent. The 
+client will first search the LAN for available receivers, 
+then prompt you to select a server to send the file to. Select the `Custom` server if
+you don't see the server you want to send the file to. You will then be prompted to enter the IP address of the server.
 
 ## License
 This project is licensed under the MIT License. See the `License.txt` file for more details.
